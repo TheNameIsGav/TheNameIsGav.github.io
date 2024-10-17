@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Tools</title>
+        <script src="tools.js"></script>
+    </head>
+    <body>
+        <h1 id="difficulty_calc">Difficulty Calculator</h1>
+        <form name="difficulty_form">
+            <label for="craft_skill">Crafting Skill</label>
+            <input id="craft_skill" name="craft_skill" type="text" onkeyup="handleCraftInput(this, 0)"><br><br>
+
+            <label for="tools_red">Tool Reduction</label>
+            <input id="tools_red" name="tools_red" type="text" onkeyup="handleCraftInput(this, 7)"><br><br>
+
+            <label for="jewl_red">Jewelry Reduction</label>
+            <input id="jewl_red" name="jewl_red" type="text" onkeyup="handleCraftInput(this, 8)"><br><br>
+
+            <label for="aff_red">Affinity Reduction</label>
+            <input id="aff_red" name="aff_red" type="text" onkeyup="handleCraftInput(this, 9)"><br><br>
+
+            <label for="t1"># Tier 1 Reagents</label>
+            <input id="t1" name="t1" type="text" onkeyup="handleCraftInput(this, 1)"><br><br>
+
+            <label for="t2"># Tier 2 Reagents</label>
+            <input id="t2" name="t2" type="text" onkeyup="handleCraftInput(this, 2)"><br><br>
+
+            <label for="t3"># Tier 3 Reagents</label>
+            <input id="t3" name="t3" type="text" onkeyup="handleCraftInput(this, 3)"><br><br>
+
+            <label for="t4"># Tier 4 Reagents</label>
+            <input id="t4" name="t4" type="text" onkeyup="handleCraftInput(this, 4)"><br><br>
+
+            <label for="t5"># Tier 5 Reagents</label>
+            <input id="t5" name="t5" type="text" onkeyup="handleCraftInput(this, 5)"><br><br>
+
+            <label for="t6"># Tier 6 Reagents</label>
+            <input id="t6" name="t6" type="text" onkeyup="handleCraftInput(this, 6)"><br><br>
+        </form>
+
+
+        <p>Difficulty</p>
+        <p id="difficulty" name="difficulty"></p>
+
+        <br><br>
+
+        <p>Chance XP on Success</p>
+        <p id="success_xp" name="success_xp"></p>
+
+        <br><br>
+
+        <p>Chance XP on Failure</p>
+        <p id="fail_xp" name="fail_xp"></p>
+
+
+
+    </body>
+</html>
