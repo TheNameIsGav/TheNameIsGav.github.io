@@ -209,5 +209,4 @@ function harvest(){
     document.getElementById("distribution").innerText = "Distribution: " + distribution
     document.getElementById("randomroll").innerText = "Random Roll: " + randomRoll
     document.getElementById("affinityroll").innerText = "Afffinity Roll: " + affinityRoll
-
 }
