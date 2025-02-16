@@ -213,7 +213,6 @@ function harvest(){
     document.getElementById("affinityroll").innerText = affinityRoll
 }
 
-
 function clearForms(){
     document.getElementById("difficulty_form").reset()
     document.getElementById("difficulty").innerText = ""
