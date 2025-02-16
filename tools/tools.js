@@ -21,6 +21,8 @@ function updateDifficulty() {
     (crafting_arr[5] * 16) + 
     (crafting_arr[6] * 24) + 1;
 
+    time_to_craft = (unmodified_cr-1)*2
+
     tool_reduction = crafting_arr[7]
     jewl_reduction = crafting_arr[8]
     affinity_reduction = crafting_arr[9]
@@ -36,11 +38,12 @@ function updateDifficulty() {
     success_xp = median([0, 
                         (50*(unmodified_cr/crafting_skill)) / 100, 
                         1]) * 100
-    fail_xp = unmodified_cr
+    fail_xp = unmodified_cr > 100 ? 99 : unmodified_cr 
 
     document.getElementById("difficulty").innerText = success + "%"
-    document.getElementById("success_xp").innerText = success_xp + "%"
+    document.getElementById("success_xp").innerText = parseInt(success_xp) + "%"
     document.getElementById("fail_xp").innerText = fail_xp + "%"
+    document.getElementById("time_to_craft").innerText = time_to_craft + " hours"
 }
 
 function median(values) {
@@ -162,7 +165,6 @@ function harvest(){
         }
     }
 
-
     //Output
     if(reagentTier == 1){
         document.getElementById("tier1_table").innerText = "1 unit of Tier 1";
@@ -203,10 +205,19 @@ function harvest(){
         document.getElementById("tier5_table").innerText = ".25 unit of Tier 5"
     }
     
-    document.getElementById("affinity").innerText = "Affinity: " + affinity
-    document.getElementById("roll").innerText = "Roll: " + roll
-    document.getElementById("total").innerText = "Total: " + total
-    document.getElementById("distribution").innerText = "Distribution: " + distribution
-    document.getElementById("randomroll").innerText = "Random Roll: " + randomRoll
-    document.getElementById("affinityroll").innerText = "Afffinity Roll: " + affinityRoll
+    document.getElementById("affinity").innerText = affinity
+    document.getElementById("roll").innerText = roll
+    document.getElementById("total").innerText = total
+    document.getElementById("distribution").innerText = distribution
+    document.getElementById("randomroll").innerText = randomRoll
+    document.getElementById("affinityroll").innerText = affinityRoll
+}
+
+
+function clearForms(){
+    document.getElementById("difficulty_form").reset()
+    document.getElementById("difficulty").innerText = ""
+    document.getElementById("success_xp").innerText = ""
+    document.getElementById("fail_xp").innerText = ""
+    document.getElementById("time_to_craft").innerText = ""
 }

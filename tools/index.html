@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Tools</title>
@@ -11,16 +12,6 @@
                 flex-direction: column;
                 align-items: center;
                 background-color:  rgb(109, 109, 109);
-            }
-            .topbar {
-                width: 100%;
-                background-color: #333;
-                color: white;
-                padding: 10px;
-                text-align: left;
-                position: fixed;
-                top: 0;
-                left: 0;
             }
             h1 {
                 margin-top: 100px;
@@ -47,18 +38,17 @@
                 margin-top: 5px;
                 border: 1px solid #000000;
                 border-radius: 5px;
-                background-color: rgb(109, 109, 109);;
+                background-color: rgb(109, 109, 109);
             }
             p {
                 font-size: 18px;
-                color: #333;
             }
             table {
                 margin-top: 20px;
                 border-collapse: collapse;
                 width: 80%;
                 max-width: 600px;
-                background: rgb(109, 109, 109);;
+                background: rgb(109, 109, 109);
                 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
                 border-radius: 10px;
                 overflow: hidden;
@@ -73,23 +63,45 @@
                 color: white;
             }
             .button {
-            background-color: #333;
-            color: white;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 12px;
-            text-align: center;
-            width: 75px;
-            transition: background 0.3s;
-        }
+                background-color: #333;
+                color: white;
+                border-radius: 10px;
+                text-decoration: none;
+                font-size: 12px;
+                text-align: center;
+                width: 75px;
+                transition: background 0.3s;
+            }
+            .topbar {
+                width: 100%;
+                background-color: #333;
+                color: white;
+                padding: 10px;
+                text-align: left;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+            .subbar {
+                margin-top: 20px;
+                width: 100%;
+                background-color: rgb(109, 109, 109);
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
         </style>
     </head>
     <body>
         <div class="topbar">
             <h2>Tools</h2>
         </div>
+        <div class="subbar">
+            <a class="button" href="../index.html">&lt; Back</a>
+        </div>
         <h1 id="difficulty_calc">Difficulty Calculator</h1>
-        <form name="difficulty_form">
+        <form name="difficulty_form" id="difficulty_form">
             <label for="craft_skill">Crafting Skill</label>
             <input id="craft_skill" name="craft_skill" type="text" onkeyup="handleCraftInput(this, 0)"><br>
 
@@ -121,15 +133,16 @@
             <input id="t6" name="t6" type="text" onkeyup="handleCraftInput(this, 6)"><br>
         </form>
 
-        <p><strong>Difficulty:</strong> <span id="difficulty"></span></p>
-        <p><strong>Chance XP on Success:</strong> <span id="success_xp"></span></p>
-        <p><strong>Chance XP on Failure:</strong> <span id="fail_xp"></span></p>
-        <button class="button" onclick="clearForms">Clear</button>
+        <p><strong>Difficulty: <span id="difficulty"></span></p></strong>
+        <p><strong>Chance XP on Success: <span id="success_xp"></span></p></strong>
+        <p><strong>Chance XP on Failure: <span id="fail_xp"></span></p></strong> 
+        <p><strong>Time to Craft: <span id="time_to_craft"></span></p></strong>
+        <button class="button" onclick="clearForms()">Clear</button>
 
         <h1 style="background-color: rgb(109, 109, 109);">Harvesting Calculator</h1>
             <label for="raw_skill">Crafting Skill - Press enter to calculate</label>
             <input id="raw_skill" style="width: 50%;"><br>
-            <button class="button" onclick="clearForms">Harvest</button>
+            <button class="button" onclick="harvest()">Harvest</button>
         
         <script>
             var input = document.getElementById("raw_skill");
@@ -140,10 +153,6 @@
                 }
             });
 
-            function clearForms(){
-                console.log("clearing forms")
-                document.getElementById("craft_skill").innerText = "";
-            }
         </script>
 
         <table>
