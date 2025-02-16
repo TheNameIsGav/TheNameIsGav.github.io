@@ -77,6 +77,14 @@ function harvest(){
     if(isNaN(user_skill)) return;
 
     var roll = Math.floor(Math.random() * 20 + 1);
+    if(document.getElementById("advantage").checked) {
+        var roll2 = Math.floor(Math.random() * 20 + 1)
+        console.log(roll2)
+        console.log(roll)
+        roll = roll2 > roll ? roll2 : roll
+        console.log(roll)
+    }
+
     var total = user_skill + roll;
 
     //Distribution
