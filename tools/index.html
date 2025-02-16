@@ -1,61 +1,136 @@
-<!DOCTYPE html>
 <html>
     <head>
         <title>Tools</title>
         <script src="tools.js"></script>
         <link rel="stylesheet" href="index.css">
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color:  rgb(109, 109, 109);
+            }
+            .topbar {
+                width: 100%;
+                background-color: #333;
+                color: white;
+                padding: 10px;
+                text-align: left;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+            h1 {
+                margin-top: 100px;
+                color: #333;
+            }
+            form {
+                background: rgb(136, 136, 136);;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+                width: 80%;
+                max-width: 500px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            label {
+                font-weight: bold;
+                margin-top: 10px;
+            }
+            input {
+                padding: 8px;
+                width: 100%;
+                margin-top: 5px;
+                border: 1px solid #000000;
+                border-radius: 5px;
+                background-color: rgb(109, 109, 109);;
+            }
+            p {
+                font-size: 18px;
+                color: #333;
+            }
+            table {
+                margin-top: 20px;
+                border-collapse: collapse;
+                width: 80%;
+                max-width: 600px;
+                background: rgb(109, 109, 109);;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+            th, td {
+                padding: 10px;
+                text-align: center;
+                border: 1px solid #ddd;
+            }
+            th {
+                background-color: #333;
+                color: white;
+            }
+            .button {
+            background-color: #333;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 12px;
+            text-align: center;
+            width: 75px;
+            transition: background 0.3s;
+        }
+        </style>
     </head>
     <body>
+        <div class="topbar">
+            <h2>Tools</h2>
+        </div>
         <h1 id="difficulty_calc">Difficulty Calculator</h1>
         <form name="difficulty_form">
             <label for="craft_skill">Crafting Skill</label>
-            <input id="craft_skill" name="craft_skill" type="text" onkeyup="handleCraftInput(this, 0)"><br><br>
+            <input id="craft_skill" name="craft_skill" type="text" onkeyup="handleCraftInput(this, 0)"><br>
 
             <label for="tools_red">Tool Reduction</label>
-            <input id="tools_red" name="tools_red" type="text" onkeyup="handleCraftInput(this, 7)"><br><br>
+            <input id="tools_red" name="tools_red" type="text" onkeyup="handleCraftInput(this, 7)"><br>
 
             <label for="jewl_red">Jewelry Reduction</label>
-            <input id="jewl_red" name="jewl_red" type="text" onkeyup="handleCraftInput(this, 8)"><br><br>
+            <input id="jewl_red" name="jewl_red" type="text" onkeyup="handleCraftInput(this, 8)"><br>
 
             <label for="aff_red">Affinity Reduction</label>
-            <input id="aff_red" name="aff_red" type="text" onkeyup="handleCraftInput(this, 9)"><br><br>
+            <input id="aff_red" name="aff_red" type="text" onkeyup="handleCraftInput(this, 9)"><br>
 
             <label for="t1"># Tier 1 Reagents</label>
-            <input id="t1" name="t1" type="text" onkeyup="handleCraftInput(this, 1)"><br><br>
+            <input id="t1" name="t1" type="text" onkeyup="handleCraftInput(this, 1)"><br>
 
             <label for="t2"># Tier 2 Reagents</label>
-            <input id="t2" name="t2" type="text" onkeyup="handleCraftInput(this, 2)"><br><br>
+            <input id="t2" name="t2" type="text" onkeyup="handleCraftInput(this, 2)"><br>
 
             <label for="t3"># Tier 3 Reagents</label>
-            <input id="t3" name="t3" type="text" onkeyup="handleCraftInput(this, 3)"><br><br>
+            <input id="t3" name="t3" type="text" onkeyup="handleCraftInput(this, 3)"><br>
 
             <label for="t4"># Tier 4 Reagents</label>
-            <input id="t4" name="t4" type="text" onkeyup="handleCraftInput(this, 4)"><br><br>
+            <input id="t4" name="t4" type="text" onkeyup="handleCraftInput(this, 4)"><br>
 
             <label for="t5"># Tier 5 Reagents</label>
-            <input id="t5" name="t5" type="text" onkeyup="handleCraftInput(this, 5)"><br><br>
+            <input id="t5" name="t5" type="text" onkeyup="handleCraftInput(this, 5)"><br>
 
             <label for="t6"># Tier 6 Reagents</label>
-            <input id="t6" name="t6" type="text" onkeyup="handleCraftInput(this, 6)"><br><br>
+            <input id="t6" name="t6" type="text" onkeyup="handleCraftInput(this, 6)"><br>
         </form>
 
+        <p><strong>Difficulty:</strong> <span id="difficulty"></span></p>
+        <p><strong>Chance XP on Success:</strong> <span id="success_xp"></span></p>
+        <p><strong>Chance XP on Failure:</strong> <span id="fail_xp"></span></p>
+        <button class="button" onclick="clearForms">Clear</button>
 
-        <p>Difficulty</p>
-        <p id="difficulty" name="difficulty"></p>
-
-        <br><br>
-
-        <p>Chance XP on Success</p>
-        <p id="success_xp" name="success_xp"></p>
-
-        <br><br>
-
-        <p>Chance XP on Failure</p>
-        <p id="fail_xp" name="fail_xp"></p>
-
-        <h1>Harvesting Calculator</h1>
-        <label for="raw_skill">Crafting Skill - Press enter to calculate</label>
-        <input id="raw_skill"><br><br>
+        <h1 style="background-color: rgb(109, 109, 109);">Harvesting Calculator</h1>
+            <label for="raw_skill">Crafting Skill - Press enter to calculate</label>
+            <input id="raw_skill" style="width: 50%;"><br>
+            <button class="button" onclick="clearForms">Harvest</button>
+        
         <script>
             var input = document.getElementById("raw_skill");
             input.addEventListener("keypress", function(event){
@@ -64,6 +139,11 @@
                     harvest();
                 }
             });
+
+            function clearForms(){
+                console.log("clearing forms")
+                document.getElementById("craft_skill").innerText = "";
+            }
         </script>
 
         <table>
@@ -85,12 +165,11 @@
             </tr>
         </table>
 
-        <p id="affinity">Affinity</p>
-        <p id="roll">Roll</p>
-        <p id="total">Total</p>
-        <p id="distribution">Distribution</p>
-        <p id="randomroll">Random Roll</p>
-        <p id="affinityroll">Affinity Roll</p>
-
+        <p><strong>Affinity:</strong> <span id="affinity"></span></p>
+        <p><strong>Roll:</strong> <span id="roll"></span></p>
+        <p><strong>Total:</strong> <span id="total"></span></p>
+        <p><strong>Distribution:</strong> <span id="distribution"></span></p>
+        <p><strong>Random Roll:</strong> <span id="randomroll"></span></p>
+        <p><strong>Affinity Roll:</strong> <span id="affinityroll"></span></p>
     </body>
 </html>

@@ -1,22 +1,139 @@
-<html>
+<!-- <html>
     <head>
         <title>Crafting Assets</title>
     </head>
     <body>
         <a href="https://thenameisgav.github.io/">Back</a>
         <h1 id="crafting">Crafting V3</h1>
-        <iframe src="https://docs.google.com/viewer?url=http://thenameisgav.github.io/crafting/Crafting.pdf&embedded=true" style="width:75%; height:650px;" frameborder="0"></iframe>
+        <embed src="http://thenameisgav.github.io/crafting/Crafting.pdf" style="width:75%; height:650px;" type="application/pdf">
         <h1 id="reagents">Reagents V3</h1>
-        <iframe src="https://docs.google.com/viewer?url=http://thenameisgav.github.io/crafting/Reagents.pdf&embedded=true" style="width:75%; height:650px;" frameborder="0"></iframe>
+        <embed src="http://thenameisgav.github.io/crafting/Reagents.pdf" style="width:75%; height:650px;" type="application/pdf">
         <br>
         <h1 id="enchanting">Enchanting V3</h1>
-        <iframe src="https://docs.google.com/viewer?url=http://thenameisgav.github.io/crafting/Enchanting.pdf&embedded=true" style="width:75%; height:650px;" frameborder="0"></iframe>
+        <embed src="http://thenameisgav.github.io/crafting/Enchanting.pdf" style="width:75%; height:650px;" type="application/pdf">
         <br>
         <h1 id="smithing">Smithing V3</h1>
-        <iframe src="https://docs.google.com/viewer?url=http://thenameisgav.github.io/crafting/Smithing.pdf&embedded=true" style="width:75%; height:650px;" frameborder="0"></iframe>
+        <embed src="http://thenameisgav.github.io/crafting/Smithing.pdf" style="width:75%; height:650px;" type="application/pdf">
         <br>
         <h1 id="alchemy">Alchemy V3</h1>
-        <iframe src="https://docs.google.com/viewer?url=http://thenameisgav.github.io/crafting/Alchemy.pdf&embedded=true" style="width:75%; height:650px;" frameborder="0"></iframe>
+        <embed src="http://thenameisgav.github.io/crafting/Alchemy.pdf" style="width:75%; height:650px;" type="application/pdf">
         <br>
     </body>
+</html> -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafting  Assets</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(109, 109, 109);;
+        }
+        .topbar {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .subbar {
+            width: 100%;
+            background-color: rgb(109, 109, 109);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .menu a {
+            display: block;
+            padding: 8px;
+            text-decoration: none;
+            color: black;
+        }
+        .menu a:hover {
+            background-color: #ddd;
+        }
+        .hamburger {
+            font-size: 24px;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        .pdf-container {
+            width: 80%;
+            height: 80vh;
+            margin-top: 20px;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .button {
+            margin-left: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 12px;
+            text-align: center;
+            width: 50px;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="hamburger" onclick="toggleMenu()">&#9776 Menu</div>
+    </div>
+    <div class="subbar">
+        <a class="button" onclick="history.back()">&lt; Back</a>
+    </div>
+    <div class="menu" id="menu">
+        <a href="#" onclick="loadPDF('http:\\thenameisgav.github.io/crafting/Crafting.pdf')">Crafting</a>
+        <a href="#" onclick="loadPDF('http:\\thenameisgav.github.io/crafting/Alchemy.pdf')">Alchemy</a>
+        <a href="#" onclick="loadPDF('http:\\thenameisgav.github.io/crafting/Enchanting.pdf')">Enchanting</a>
+        <a href="#" onclick="loadPDF('http:\\thenameisgav.github.io/crafting/Smithing.pdf')">Smithing</a>
+        <a href="#" onclick="loadPDF('http:\thenameisgav.github.io/crafting/Reagents.pdf')">Reagents</a>
+    </div>
+    <div class="pdf-container">
+        <iframe id="pdf-viewer" src="http:\\thenameisgav.github.io/crafting/Crafting.pdf"></iframe>
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+        function loadPDF(pdf) {
+            document.getElementById("pdf-viewer").src = pdf;
+            document.getElementById("menu").style.display = "none";
+        }
+    </script>
+</body>
 </html>
