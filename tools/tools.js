@@ -19,16 +19,16 @@ function updateDifficulty() {
     (crafting_arr[3] * 6) + 
     (crafting_arr[4] * 9) + 
     (crafting_arr[5] * 16) + 
-    (crafting_arr[6] * 24) + 1;
+    (crafting_arr[6] * 32);
 
-    time_to_craft = (unmodified_cr-1)*2
+    time_to_craft = unmodified_cr*2
 
     tool_reduction = crafting_arr[7]
     jewl_reduction = crafting_arr[8]
-    affinity_reduction = crafting_arr[9]
+    wep_cr = crafting_arr[9]
     crafting_skill = crafting_arr[0]
 
-    modified_cr = unmodified_cr - tool_reduction - jewl_reduction - affinity_reduction;
+    modified_cr = unmodified_cr - tool_reduction - jewl_reduction + wep_cr;
 
     success = (
         Math.atan((crafting_skill-modified_cr)/7.5) + (Math.PI/2)
@@ -40,6 +40,7 @@ function updateDifficulty() {
                         1]) * 100
     fail_xp = unmodified_cr > 100 ? 99 : unmodified_cr 
 
+    document.getElementById("unmodifiedCR").innerText = parseInt(unmodified_cr)
     document.getElementById("difficulty").innerText = success + "%"
     document.getElementById("success_xp").innerText = parseInt(success_xp) + "%"
     document.getElementById("fail_xp").innerText = fail_xp + "%"
@@ -149,27 +150,27 @@ function harvest(){
 
     //Affinity
     var affinity = "None"
-    var affinityRoll = Math.floor(Math.random()*10 + 1)
+    var affinityRoll = Math.floor(Math.random()*100 + 1)
   
-    if(affinityRoll >= 8){
+    if(affinityRoll <= 20){
         var schoolRoll = Math.floor(Math.random() * 8)
         switch(schoolRoll){
-        case 0:
-            affinity = "Abjuration"; break;
-        case 1:
-            affinity = "Conjuration"; break;
-        case 2:
-            affinity = "Evocation"; break;
-        case 3:
-            affinity = "Enchantment"; break;
-        case 4:
-            affinity = "Illusion"; break;
-        case 5:
-            affinity = "Transmutation"; break;
-        case 6:
-            affinity = "Necromancy"; break;
-        case 7: 
-            affinity = "Divination"; break;
+            case 0:
+                affinity = "Abjuration"; break;
+            case 1:
+                affinity = "Conjuration"; break;
+            case 2:
+                affinity = "Evocation"; break;
+            case 3:
+                affinity = "Enchantment"; break;
+            case 4:
+                affinity = "Illusion"; break;
+            case 5:
+                affinity = "Transmutation"; break;
+            case 6:
+                affinity = "Necromancy"; break;
+            case 7: 
+                affinity = "Divination"; break;
         }
     }
 
